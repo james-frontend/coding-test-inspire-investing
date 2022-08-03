@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   const [size, setSize] = useState<number>(5);
   const [holdingHistory, setHoldingHistory] = useState([]);
-  const [fundDetail, setFundDetail] = useState([]);
+  const [fundDetail, setFundDetail] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   const loadMoreRecords = () => {
@@ -35,17 +35,16 @@ function App() {
     <div className="App">
       <h1> API Call for Fund Holdings </h1>
       {isLoading && <p>Loading...</p>}
-
       <table width="100%" border={1}>
         <thead>
           <tr>
             <td colSpan={5}>
-              <b>Fund Name:</b> {fundDetail.name}
+              <b>Fund Name:</b> {fundDetail['name']}
             </td>
           </tr>
           <tr>
             <td colSpan={5}>
-              <b>Previous Share Price:</b> {fundDetail.name}
+              <b>Previous Share Price:</b> {fundDetail['previousSharePrice']}
             </td>
           </tr>
           <tr>
